@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* ── Base styles ──────────────────────────────────────────── */
 body {
   margin: 0;
   padding: 0;
@@ -13,8 +14,30 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Glassmorphism utility class ──────────────────────────── */
+/* Used on cards across Letter, Gallery, Timeline pages       */
 .glass {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Floating animation ───────────────────────────────────── */
+/* Apply className="float" to any image you want to bob gently */
+/* Used on Letter page and ThankYou page images               */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ── Subtle shimmer for glow elements ────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.75; }
 }
